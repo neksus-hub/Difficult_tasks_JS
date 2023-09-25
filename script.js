@@ -1,2 +1,3 @@
 let num = 266219;
-console.log(typeof num);
+let array = ("" + num).split("");
+console.log(array);
