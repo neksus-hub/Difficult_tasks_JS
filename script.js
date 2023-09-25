@@ -1,2 +1,2 @@
 let num = 266219;
-console.log(num);
+console.log(typeof num);
