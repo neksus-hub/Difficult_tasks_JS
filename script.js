@@ -6,3 +6,6 @@ for (let i = 0; i < array.length; ++i) {
 }
 console.log(array);
 console.log(initVal);
+initVal **= 3;
+console.log(initVal);
+console.log(typeof initVal);
