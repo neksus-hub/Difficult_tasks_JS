@@ -27,3 +27,32 @@ switch (lang) {
   default:
     console.log("Что-то пошло не так");
 }
+
+//многомерный массив
+let days = {
+  // Массив с днями недели
+  ru: [
+    "Понедельник",
+    "Вторник",
+    "Среда",
+    "Четверг",
+    "Пятница",
+    "Суббота",
+    "Воскресенье",
+  ],
+  en: [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+  ],
+};
+
+const getDay = (lang) => {
+  return days[lang];
+};
+
+console.log(getDay(lang));
