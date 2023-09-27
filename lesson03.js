@@ -56,3 +56,15 @@ const getDay = (lang) => {
 };
 
 console.log(getDay(lang));
+
+// через тернарные операторы
+
+let namePerson = prompt("Укажите имя");
+
+console.log(
+  namePerson === "Артём"
+    ? "Директор"
+    : namePerson === "Александр"
+    ? "Преподаватель"
+    : "Студент"
+);
