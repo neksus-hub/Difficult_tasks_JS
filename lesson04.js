@@ -1,19 +1,9 @@
-let ThisString = prompt("Введите строку");
-let notAString = +prompt("Введите число");
-let withoutSpaces;
-let withDots;
-
-function parseStringOrNot(argument) {
-  if (typeof argument !== "string") {
-    alert("Это не строка!");
-  } else {
-    withoutSpaces = argument.trim();
-    alert("Cтрока без пробелов: " + withoutSpaces);
-  }
-  if (argument.length > 30) {
-    withDots = withoutSpaces.slice(0, 10) + "...";
-    alert(withDots);
-  }
+function parseStringOrNot(txt) {
+  if (typeof txt !== "string") return "Передана не строка";
+  return txt.trim().length > 30 ? `${txt.trim().slice(0, 30)}...` : txt.trim();
 }
 
-parseStringOrNot(ThisString);
+console.log(
+  parseStringOrNot("    Ехал Грека через реку, видит Грека в реке рак     ")
+);
+console.log(parseStringOrNot(10));
