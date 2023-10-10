@@ -6,12 +6,15 @@ const getFormatB = document.querySelector(".format-b");
 let numberDay;
 let todayWeekDay;
 let numberYear;
+let numberMonth;
 let numberMinutes;
 let numberHours;
 let numberSeconds;
 let hour;
 let minute;
 let second;
+let dateFormatA;
+let dateFormatB;
 
 let decOfHours = ["час", "часа", "часов"];
 let decOfMinutes = ["минута", "минут", "минуты"];
@@ -88,6 +91,7 @@ let declensionOfSeconds = function (word) {
 let start = function () {
   todayWeekDay = new Date();
   numberDay = todayWeekDay.getDay();
+  numberMonth = todayWeekDay.getMonth();
   numberYear = todayWeekDay.getFullYear();
   numberHours = todayWeekDay.getHours();
   numberMinutes = todayWeekDay.getMinutes();
@@ -99,6 +103,13 @@ let today = new Date().toLocaleString("ru", {
   day: "numeric",
 });
 
+let ifLessThanTen = function (num) {
+  if (num < 10) {
+    return "0" + num;
+  } else {
+    return num;
+  }
+};
 // вызов функций
 
 start();
@@ -106,11 +117,7 @@ declensionOfHours(numberHours);
 declensionOfMinutes(numberMinutes);
 declensionOfSeconds(numberSeconds);
 
-//мусорный блок
-
-getFormatA.innerHTML = "Вариант а: " + todayWeekDay;
-getFormatB.innerHTML =
-  "Вариант б: " +
+dateFormatA =
   "Сегодня " +
   weekDays[numberDay] +
   ", " +
@@ -129,3 +136,21 @@ getFormatB.innerHTML =
   numberSeconds +
   " " +
   second;
+
+dateFormatB =
+  ifLessThanTen(numberDay) +
+  "." +
+  ifLessThanTen(numberMonth) +
+  "." +
+  ifLessThanTen(numberYear) +
+  " - " +
+  ifLessThanTen(numberHours) +
+  "." +
+  ifLessThanTen(numberMinutes) +
+  "." +
+  ifLessThanTen(numberSeconds);
+
+//мусорный блок
+
+getFormatA.innerHTML = dateFormatA;
+getFormatB.innerHTML = dateFormatB;
