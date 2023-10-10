@@ -89,13 +89,52 @@ let declensionOfSeconds = function (word) {
 };
 
 let start = function () {
-  todayWeekDay = new Date();
-  numberDay = todayWeekDay.getDay();
-  numberMonth = todayWeekDay.getMonth();
-  numberYear = todayWeekDay.getFullYear();
-  numberHours = todayWeekDay.getHours();
-  numberMinutes = todayWeekDay.getMinutes();
-  numberSeconds = todayWeekDay.getSeconds();
+  setInterval(function () {
+    todayWeekDay = new Date();
+    numberDay = todayWeekDay.getDay();
+    numberMonth = todayWeekDay.getMonth();
+    numberYear = todayWeekDay.getFullYear();
+    numberHours = todayWeekDay.getHours();
+    numberMinutes = todayWeekDay.getMinutes();
+    numberSeconds = todayWeekDay.getSeconds();
+
+    dateFormatA =
+      "Сегодня " +
+      weekDays[numberDay] +
+      ", " +
+      today +
+      " " +
+      numberYear +
+      " года, " +
+      numberHours +
+      " " +
+      hour +
+      " " +
+      numberMinutes +
+      " " +
+      minute +
+      " " +
+      numberSeconds +
+      " " +
+      second;
+
+    getFormatA.innerHTML = dateFormatA;
+
+    dateFormatB =
+      ifLessThanTen(numberDay) +
+      "." +
+      ifLessThanTen(numberMonth) +
+      "." +
+      ifLessThanTen(numberYear) +
+      " - " +
+      ifLessThanTen(numberHours) +
+      "." +
+      ifLessThanTen(numberMinutes) +
+      "." +
+      ifLessThanTen(numberSeconds);
+
+    getFormatB.innerHTML = dateFormatB;
+  }, 1000);
 };
 
 let today = new Date().toLocaleString("ru", {
@@ -110,47 +149,10 @@ let ifLessThanTen = function (num) {
     return num;
   }
 };
+
 // вызов функций
 
 start();
 declensionOfHours(numberHours);
 declensionOfMinutes(numberMinutes);
 declensionOfSeconds(numberSeconds);
-
-dateFormatA =
-  "Сегодня " +
-  weekDays[numberDay] +
-  ", " +
-  today +
-  " " +
-  numberYear +
-  " года, " +
-  numberHours +
-  " " +
-  hour +
-  " " +
-  numberMinutes +
-  " " +
-  minute +
-  " " +
-  numberSeconds +
-  " " +
-  second;
-
-dateFormatB =
-  ifLessThanTen(numberDay) +
-  "." +
-  ifLessThanTen(numberMonth) +
-  "." +
-  ifLessThanTen(numberYear) +
-  " - " +
-  ifLessThanTen(numberHours) +
-  "." +
-  ifLessThanTen(numberMinutes) +
-  "." +
-  ifLessThanTen(numberSeconds);
-
-//мусорный блок
-
-getFormatA.innerHTML = dateFormatA;
-getFormatB.innerHTML = dateFormatB;
