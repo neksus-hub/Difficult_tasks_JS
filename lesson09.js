@@ -1,7 +1,8 @@
 "use strict";
 
 // переменные
-
+const getFormatA = document.querySelector(".format-a");
+const getFormatB = document.querySelector(".format-b");
 let numberDay;
 let todayWeekDay;
 let numberYear;
@@ -107,23 +108,24 @@ declensionOfSeconds(numberSeconds);
 
 //мусорный блок
 
-console.log(
+getFormatA.innerHTML = "Вариант а: " + todayWeekDay;
+getFormatB.innerHTML =
+  "Вариант б: " +
   "Сегодня " +
-    weekDays[numberDay] +
-    ", " +
-    today +
-    " " +
-    numberYear +
-    " года, " +
-    numberHours +
-    " " +
-    hour +
-    " " +
-    numberMinutes +
-    " " +
-    minute +
-    " " +
-    numberSeconds +
-    " " +
-    second
-);
+  weekDays[numberDay] +
+  ", " +
+  today +
+  " " +
+  numberYear +
+  " года, " +
+  numberHours +
+  " " +
+  hour +
+  " " +
+  numberMinutes +
+  " " +
+  minute +
+  " " +
+  numberSeconds +
+  " " +
+  second;
