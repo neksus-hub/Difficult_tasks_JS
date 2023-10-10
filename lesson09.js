@@ -98,6 +98,10 @@ let start = function () {
     numberMinutes = todayWeekDay.getMinutes();
     numberSeconds = todayWeekDay.getSeconds();
 
+    declensionOfHours(numberHours);
+    declensionOfMinutes(numberMinutes);
+    declensionOfSeconds(numberSeconds);
+
     dateFormatA =
       "Сегодня " +
       weekDays[numberDay] +
@@ -153,6 +157,3 @@ let ifLessThanTen = function (num) {
 // вызов функций
 
 start();
-declensionOfHours(numberHours);
-declensionOfMinutes(numberMinutes);
-declensionOfSeconds(numberSeconds);
